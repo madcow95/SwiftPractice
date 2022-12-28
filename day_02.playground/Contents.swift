@@ -55,20 +55,19 @@ if let otherVariable = someVariable {
 }
 
 // Optional 상태의 값들은 unWrap을 해줘야함.
-var first : Int? = 50
+var first : Int? = 40
 var second : Int? = 20
 
 // param: 형식으로 쓰기 싫으면 unWrap param 앞에 _ 붙이면됨
-unWrap( param: first )
-unWrap( param: second )
-
+print(unWrap( param: first ))
+print(unWrap( param: second ))
 // unWrap을 위한 함수
-func unWrap( param : Int? ) {
+func unWrap( param : Int? ) -> Int {
     // unWrap함수의 param에 들어온 값이 있다면 unWrappedValue에 할당
     // 그렇지 않다면 패스
     // guard란?
     guard let unWrappedValue = param else {
-        return
+        return 0
     }
-    print( "unWrappedValue >>> \(unWrappedValue)" )
+    return unWrappedValue
 }
