@@ -72,6 +72,8 @@ enum SchoolDetail {
     case college(name : String)
     
     // Swift에서의 함수 사용
+    // -> : return 시킬게 있다는 뜻(
+    
     func getName() -> String {
         switch self {
             case .elementary( let name ) :

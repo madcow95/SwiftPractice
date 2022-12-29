@@ -8,7 +8,7 @@ for i in array {
     print( "i >> \(i)" )
 }
 
-// 2
+// 2 
 // 0 - 10 까지 반복 => range
 for i in 0...10 {
     print( "i >> \(i)" )
