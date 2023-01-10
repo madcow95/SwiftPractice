@@ -1,23 +1,47 @@
 import UIKit
 
-var greeting = "Hello, playground"
+// Optional
+// 값이 있을수도 없을수도 있다
+var myName: String? = "Choi"
 
-func sayHello(_ name: String, _ times: Int) -> String {
-    var result: String = ""
-    for _ in 0..<times {
-        result += "Hello \(name)\n"
+func nilCheck(value optionalCheck: Any?) {
+    switch optionalCheck {
+    case .none:
+        print("There is no value")
+    case .some(let value):
+        print("value is >>> \(value)")
     }
-    return result
 }
+//myName = nil
+//nilCheck(value: myName)
 
-func sayHello(to name: String, repeatCount times: Int) -> String {
-    var result: String = ""
-    for _ in 0..<times {
-        result += "Hello \(name) \n"
+let numbers: [Int?] = [2, nil, -4, nil, 100]
+
+/*
+    // switch를 이용한 배열 안에 nil check -> 일일이 해줘야해서 불편하다
+    for number in numbers {
+        switch number {
+        case .some(let value) where value < 0 :
+            print("value has minus >>> \(value)")
+        case .some(let value) where value > 10 :
+            print("value is over ten >>> \(value)")
+        case .some(let value) :
+            print("other value is >>> \(value)")
+        case .none :
+            print("value is nil")
+        }
     }
-    return result
-}
-// 전달인자 레이블 변경을 통한 함수 중복 정의
-print(sayHello("Choi", 3))
-print(sayHello(to: "Kwang", repeatCount: 2))
+*/
 
+// Optional Unwrapping -> 옵셔널 강제 추출
+// 옵셔널 값 뒤에 !를 붙여서 강제로 추출하지만 만약 강제로 추출한 값이 없다면 nil을 반환하며 런타임 오류 발생
+
+// 옵셔널이 아닌 변수에는 옵셔널 값이 들어갈 수 없다. 추출하여 할당해야됨
+// var choi: String = myName!
+
+// 방법 1. If 구문 등으로 처리
+if myName == nil {
+    print("myName is nil")
+} else {
+    print("My Name is \(myName)")
+}
