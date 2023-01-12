@@ -41,3 +41,28 @@ me = nil
  
     가장 큰 차이 : struct는 값 타입 / class는 참조 타입
  */
+
+struct tempStruct {
+    var name: String
+    var age: Int
+}
+
+let tempStrData: tempStruct = tempStruct(name: "최광우", age: 29)
+var copiedStrData: tempStruct = tempStrData
+copiedStrData.name = "우광최"
+print(tempStrData.name)     // 최광우
+print(copiedStrData.name)   // 우광최
+// 구조체는 임시할당한 데이터를 변경해도 원본 데이터는 변하지 않음
+
+class tempClass {
+    var name: String = "최광우"
+    var age: Int = 29
+}
+
+let tempClassData: tempClass = tempClass()
+var copiedClassData: tempClass = tempClassData
+copiedClassData.age = 28
+
+print(tempClassData.age)    // 28
+print(copiedClassData.age)  // 28
+// 클래스는 기존 인스턴스의 참조를 전달하기 때문에 복사된 값에 데이터를 변경했을 때 원본 데이터도 같이 변경이 된다~
