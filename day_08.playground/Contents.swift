@@ -75,4 +75,4 @@ var wonToDollar: Double {
         wonInPocket = Int(newValue * 1000.0)
     }
 }
-wonToDollar = 3.5
+//wonToDollar = 3.5
