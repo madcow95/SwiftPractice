@@ -143,3 +143,5 @@ class SelfLevelClass {
 var selfClassInstance: SelfLevelClass = SelfLevelClass()
 selfClassInstance.jumpLevel(to: -5)
 print(selfClassInstance.level)
+
+
