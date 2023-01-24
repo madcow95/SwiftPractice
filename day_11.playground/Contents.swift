@@ -25,7 +25,7 @@ enum Student: String {
 }
 
 var younger: Student? = Student(age: 20)
-//print(younger ?? "default") // default
+print(younger ?? "default") // default
 
 younger = Student(born: 2005, currentYear: 2023)
 //print(younger!) // high
