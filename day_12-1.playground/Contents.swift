@@ -41,6 +41,14 @@ let reversed3: [String] = names.sorted{(first: String, second: String) -> Bool i
     return first > second
 }
 
+// 약간 JS로 치면 이런 느낌인거 같다.
+/**
+     let reversed4 = names.sort((a, b) => {
+         return a - b
+     })
+    이건데 함수안에 타입을 잘 지정해주고, return type까지 작성을 해준 느낌
+ */
+
 func doSomething(do: (String) -> Void,
                  onSuccess: (Any) -> Void,
                  onFailure: (Error) -> Void) {
