@@ -20,7 +20,7 @@ import UIKit
 let names: [String] = ["이지섭", "최광우", "정유진", "박성현"]
 
 func backwards(first: String, second: String) -> Bool {
-    print("\(first)와 \(second) 비교중")
+//    print("\(first)와 \(second) 비교중")
     return first < second
 }
 
@@ -52,7 +52,7 @@ let reversed3: [String] = names.sorted{(first: String, second: String) -> Bool i
 func doSomething(do: (String) -> Void,
                  onSuccess: (Any) -> Void,
                  onFailure: (Error) -> Void) {
-    print("do something func")
+//    print("do something func")
 }
 
 doSomething {(someString: String) in
@@ -63,3 +63,36 @@ doSomething {(someString: String) in
     print("onFailure Closure \(error)")
 }
 
+func makeIncrementer(forIncrement amount: Int) -> (() -> Int) {
+    var runnningTotal = 0
+    func incrementer() -> Int {
+        runnningTotal += amount
+        return runnningTotal
+    }
+    return incrementer
+}
+
+let incrementByTwo: (() -> Int) = makeIncrementer(forIncrement: 2)
+
+let first: Int = incrementByTwo()
+let second: Int = incrementByTwo()
+let third: Int = incrementByTwo()
+
+// Closer를 이용한 연산 지연
+var customersInLine: [String] = ["최광우", "정유진", "이지섭", "박성현"]
+
+// Closer를 만들어두면 Closer 내부의 코드를 미리 실행하지 않고 가지고만 있는다.
+let customerProvider: () -> String = {
+    return customersInLine.removeFirst()
+}
+
+//print(customersInLine.count) // 4
+// 실제로 실행됨
+//customerProvider()
+//print(customersInLine.count) // 3
+
+func serveCustomer(_ customerProvider: () -> String) {
+    print("Now Serving \(customerProvider())!")
+}
+
+serveCustomer({customersInLine.removeFirst()})
