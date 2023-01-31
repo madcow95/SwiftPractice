@@ -158,3 +158,21 @@ jeong2.age = 28
 jeong2.koreanAge = 29 // age Property를 재정의 했기 때문에 오류발생 X
 //print(jeong2.introduction) => 이름 : 정유진 / 나이 : 28 학점 : A
 //print(jeong2.koreanAge) => 29
+
+// 재정의 방지
+class Person3 {
+    final var name: String = ""
+    
+    final func speak() {
+        print("말해봐 말")
+    }
+}
+
+//final class Student3: Person3 {
+    // Person3의 name은 final로 설정되어 재정의 될 수 없음 에러 발생
+//    override var name: String {
+//        set {
+//            super.name = newValue
+//        }
+//    }
+//}
